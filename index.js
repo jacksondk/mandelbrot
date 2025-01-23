@@ -1,4 +1,5 @@
-import * as wasm from "./pkg/mandelbrot.js";
-window.wasm = wasm
-wasm.greet();
+import init, * as wasm from "./pkg/mandelbrot.js";
+
+await init();
+console.log("got + " + wasm.greet());
 
