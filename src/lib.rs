@@ -22,3 +22,19 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 pub fn greet() -> i32 {
     42
 }
+
+
+#[wasm_bindgen]
+pub fn compute_row(imag: f64, min_real: f64, max_real: f64, steps: u16) -> Vec<u16> {
+    let mut row = Vec::with_capacity(steps as usize);
+    let step_size = (max_real - min_real) / (steps as f64);
+
+    for i in 0..steps {
+        let _real = min_real + (i as f64) * step_size;
+        // Compute the value for each element here
+        let value = i as u16; // Example computation
+        row.push(value);
+    }
+
+    row
+}

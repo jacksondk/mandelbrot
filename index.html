@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Test of WASM</title>
-    <script type="module"
-            src="./index.js"></script>
 </head>
 <body>
-<h1>What</h1>
+<h1>What </h1>
+
+<a id="answser"></a>
+
+<script type="module">
+    import init, * as wasm from "./pkg/mandelbrot.js";
+    init().then(() => {
+        let element = document.getElementById("answser");
+        element.innerText = "The answer is " + wasm.greet();
+
+        console.log(wasm.compute_row(1,-1,1,10));
+    });
+</script>
 </body>
 </html>
